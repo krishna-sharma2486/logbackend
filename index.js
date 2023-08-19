@@ -45,7 +45,7 @@ const User = mongoose.model("Studentinfo");
 app.post("/register",async(req,res)=>{
 
    const {Email,Name,RollNo,FatherName,Batch,MobileNo,password }=req.body;
-   const encryptedPassword=await bycrpt.hash(password, 10);
+   const encryptedPassword=await bcrypt.hash(password, 10);
    try { 
     const oldUser= await User.findOne({Email});
 
